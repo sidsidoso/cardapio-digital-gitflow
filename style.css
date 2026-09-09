@@ -16,6 +16,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 body { margin: 0; }
+h1, h2 { overflow-wrap: anywhere; }
 a { color: inherit; }
 ::selection { color: var(--papel); background: var(--vinho); }
 .cabecalho, main, .rodape { width: min(1240px, calc(100% - 96px)); margin-inline: auto; }
@@ -81,7 +82,7 @@ h2 { font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.12; letter-spacing:
 }
 @media (max-width: 760px) {
   .cabecalho, main, .rodape { width: calc(100% - 40px); }
-  .cabecalho { padding: 22px 0; }
+  .cabecalho { padding: 22px 0; flex-wrap: wrap; }
   .cabecalho-nota { display: none; }
   .marca-nome { font-size: 2.35rem; }
   .marca-descricao { font-size: .75rem; letter-spacing: .08em; }
@@ -99,7 +100,7 @@ h2 { font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.12; letter-spacing:
   .produto-foto { flex-basis: 41%; }
   .produto-conteudo { padding: 24px 20px; }
   h2 { font-size: 1.5rem; }
-  .rodape-menu { padding: 24px 0 30px; }
+  .rodape-menu { padding: 24px 0 30px; flex-wrap: wrap; }
   .rodape-menu > span:first-child { max-width: 160px; line-height: 1.6; }
   .assinatura { font-size: 1.3rem; white-space: nowrap; }
   .rodape { flex-wrap: wrap; gap: 16px; }

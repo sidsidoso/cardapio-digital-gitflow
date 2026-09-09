@@ -4,10 +4,20 @@ Projeto acadêmico para demonstrar o ciclo de desenvolvimento com Git, GitHub e 
 
 Abra `index.html` no navegador para consultar os três produtos e seus preços em reais. Não é necessário instalar dependências.
 
+O cardápio tem a identidade fictícia **Brasa — Cozinha Artesanal**, com fotos ilustrativas,
+cores vinho e creme e apresentação adaptada ao celular. Produtos e preços são os mesmos
+da atividade original. As imagens ficam no repositório; a página funciona sem internet.
+
+Também é possível executar `npm start` e abrir o endereço local exibido no terminal.
+O servidor atende apenas neste computador. Encerre com `Ctrl+C`.
+
 Para validar com Node.js 22.13 ou superior: `npm test` e `npm run check`.
 
 ## Versões e evidências
 
+- **1.1.0:** nova identidade visual Brasa, fotografias ilustrativas e melhorias de acessibilidade.
+  Desenvolvida depois da avaliação em `feature/identidade-visual` e entregue via `release/1.1.0`.
+  As tags históricas abaixo permanecem intactas.
 - [Guia da avaliação com commits e comandos](docs/EVIDENCIAS.md).
 - [Release 1.0.0](https://github.com/sidsidoso/cardapio-digital-gitflow/tree/1.0.0): três produtos com preços.
 - [Versão corrigida 1.0.1](https://github.com/sidsidoso/cardapio-digital-gitflow/tree/1.0.1): correção do nome de um produto via hotfix.

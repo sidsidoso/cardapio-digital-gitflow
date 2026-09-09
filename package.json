@@ -5,7 +5,8 @@
   "description": "Projeto acadêmico para praticar GitFlow",
   "engines": { "node": ">=22.13.0" },
   "scripts": {
+    "start": "node scripts/preview.cjs",
     "test": "node --test",
-    "check": "node --check app.js && node --check test/cardapio.test.cjs"
+    "check": "node --check app.js && node --check test/cardapio.test.cjs && node --check scripts/preview.cjs"
   }
 }

@@ -1,13 +1,121 @@
-:root { font-family: system-ui, sans-serif; color: #29241f; background: #faf6ee; }
+@charset "UTF-8";
+
+:root {
+  color-scheme: light;
+  --papel: #f5f0e7;
+  --tinta: #282521;
+  --vinho: #831f29;
+  --muted: #6a6058;
+  --linha: #d6cbbb;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: var(--tinta);
+  background: var(--papel);
+  -webkit-font-smoothing: antialiased;
+}
 * { box-sizing: border-box; }
-body { margin: 0; padding: 40px 20px; }
-main { max-width: 850px; margin: auto; }
-h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 8px; }
-main > p { color: #60564c; }
-ul { list-style: none; padding: 0; display: grid; gap: 16px; margin: 32px 0; }
-li { background: #fff; border: 1px solid #ded4c5; border-radius: 12px; padding: 24px; }
-h2 { font-size: 1.3rem; margin: 0 0 8px; }
-li p { margin: 0; line-height: 1.5; }
-.preco { display: block; color: #753208; margin-top: 16px; font-size: 1.2rem; }
-footer { font-size: .875rem; color: #60564c; }
-@media (min-width: 720px) { ul { grid-template-columns: repeat(3, 1fr); } }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; }
+h1, h2 { overflow-wrap: anywhere; }
+a { color: inherit; }
+::selection { color: var(--papel); background: var(--vinho); }
+.cabecalho, main, .rodape { width: min(1240px, calc(100% - 96px)); margin-inline: auto; }
+.cabecalho { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--linha); }
+.marca { display: grid; gap: 2px; }
+.marca-nome { color: var(--vinho); font-size: 2.8rem; font-weight: 900; letter-spacing: -.09em; line-height: 1; }
+.marca-descricao { font-size: .75rem; letter-spacing: .16em; font-weight: 700; }
+.cabecalho-nota { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-style: italic; font-size: 1.125rem; }
+.ponto { width: 7px; height: 7px; border-radius: 50%; background: var(--vinho); }
+.link-menu { padding: 12px 0; font-size: .875rem; font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--vinho); }
+.link-menu span { display: inline-block; margin-left: 24px; font-size: 1.25rem; transition: transform .2s; }
+.link-menu:hover span { transform: translate(2px, -2px); }
+.abertura { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding: 44px 0 34px; }
+.sobretitulo { color: var(--vinho); font-size: .75rem; font-weight: 700; letter-spacing: .2em; margin: 0 0 12px; }
+h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3.5rem, 6.4vw, 6rem); line-height: 1.08; font-weight: 400; letter-spacing: -.06em; margin: 0; }
+h1 em { color: var(--vinho); font-weight: 400; }
+.introducao { color: var(--muted); font-size: 1rem; line-height: 1.65; margin: 0 0 5px; }
+.linha-menu { display: flex; justify-content: space-between; gap: 16px; padding: 15px 0; border-top: 2px solid var(--vinho); font-size: .75rem; letter-spacing: .09em; font-weight: 700; }
+.linha-menu > span:last-child { color: var(--muted); text-align: right; }
+.linha-menu > span:last-child span { margin-inline: 8px; color: var(--vinho); }
+.produtos { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1.15fr 1fr; grid-template-rows: 1fr 1fr; gap: 20px; }
+.produto { display: flex; min-width: 0; background: #fffcf6; border: 1px solid var(--linha); border-radius: 4px; overflow: hidden; transition: box-shadow .25s, border-color .25s; }
+.produto:hover { box-shadow: 0 10px 28px #5423180d; border-color: #b9a18d; }
+.produto-foto { position: relative; flex: 0 0 43%; overflow: hidden; background: #5d171d; }
+.produto-foto img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+.produto:hover .produto-foto img { transform: scale(1.035); }
+.produto--suco .produto-foto img { width: 200%; max-width: none; position: absolute; right: 0; object-position: right; }
+.produto-conteudo { display: flex; flex: 1; flex-direction: column; padding: 26px 24px; min-width: 0; }
+.produto-categoria { color: var(--vinho); font-size: .75rem; font-weight: 700; letter-spacing: .09em; line-height: 1.5; margin: 0 0 14px; }
+h2 { font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.12; letter-spacing: -.04em; margin: 0 0 10px; text-wrap: balance; }
+.produto-descricao { color: var(--muted); font-size: 1rem; line-height: 1.6; margin: 0 0 22px; }
+.preco { display: block; margin-top: auto; color: var(--vinho); font-size: 1.65rem; letter-spacing: -.055em; white-space: nowrap; font-weight: 700; }
+.produto--hamburguer { grid-row: span 2; display: flex; flex-direction: column; }
+.produto--hamburguer .produto-foto { flex: auto; height: 305px; min-height: 265px; }
+.produto--hamburguer .produto-foto img { object-position: center 54%; }
+.produto--hamburguer .produto-conteudo { position: relative; flex: 0; display: grid; grid-template-columns: 1fr auto; column-gap: 16px; padding: 26px 28px 28px; }
+.produto--hamburguer .produto-categoria { grid-column: 1 / -1; margin-bottom: 12px; }
+.produto--hamburguer h2 { grid-column: 1; max-width: 13em; }
+.produto--hamburguer .produto-descricao { grid-column: 1; margin-bottom: 0; }
+.produto--hamburguer .preco { grid-column: 2; grid-row: 2 / 4; align-self: center; margin: 0; font-size: 2rem; }
+.produto-selo { position: absolute; top: 20px; left: 20px; background: var(--papel); color: var(--vinho); padding: 10px 14px; font-size: .875rem; font-family: Georgia, serif; font-style: italic; box-shadow: 0 2px 12px #1b060520; }
+.rodape-menu { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 0 40px; }
+.rodape-menu > span:first-child { color: var(--muted); font-size: .875rem; }
+.rodape-menu em { font-family: Georgia, serif; color: var(--vinho); }
+.assinatura { font-family: Georgia, serif; font-size: 1.5rem; font-style: italic; color: var(--vinho); }
+.assinatura > span { margin-left: 14px; font-style: normal; }
+.rodape { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0 30px; border-top: 1px solid var(--linha); }
+.rodape-marca { font-weight: 900; font-size: 1.6rem; letter-spacing: -.08em; color: var(--vinho); }
+.rodape p { flex: 1; margin: 0; font-size: .75rem; line-height: 1.6; color: var(--muted); }
+.rodape-nota { font-size: .75rem; color: var(--muted); }
+.pular-conteudo { position: fixed; left: 16px; top: 16px; z-index: 10; padding: 12px 16px; background: var(--vinho); color: white; transform: translateY(-200%); }
+.pular-conteudo:focus { transform: translateY(0); }
+:focus-visible { outline: 3px solid var(--vinho); outline-offset: 5px; }
+.aviso { padding: 24px; border: 1px solid var(--vinho); }
+@media (min-width: 1500px) { .abertura { padding-top: 54px; } .produto--hamburguer .produto-foto { height: 345px; } }
+@media (max-width: 1050px) {
+  .cabecalho, main, .rodape { width: calc(100% - 56px); }
+  .produtos { grid-template-columns: 1fr 1fr; }
+  .produto-foto { flex-basis: 38%; }
+  .produto-conteudo { padding: 22px 18px; }
+  .produto--hamburguer .produto-conteudo { display: flex; padding: 24px; }
+  .produto--hamburguer .preco { align-self: flex-start; margin-top: 20px; }
+}
+@media (max-width: 760px) {
+  .cabecalho, main, .rodape { width: calc(100% - 40px); }
+  .cabecalho { padding: 22px 0; flex-wrap: wrap; }
+  .cabecalho-nota { display: none; }
+  .marca-nome { font-size: 2.35rem; }
+  .marca-descricao { font-size: .75rem; letter-spacing: .08em; }
+  .link-menu span { margin-left: 10px; }
+  .abertura { align-items: flex-start; flex-direction: column; gap: 18px; padding: 32px 0 24px; }
+  h1 { font-size: clamp(3.5rem, 11vw, 5rem); }
+  .introducao br { display: none; }
+  .linha-menu { font-size: .75rem; letter-spacing: .035em; align-items: center; }
+  .linha-menu > span:last-child { max-width: 118px; line-height: 1.5; }
+  .produtos { grid-template-columns: 1fr; grid-template-rows: auto; gap: 16px; }
+  .produto--hamburguer { grid-row: auto; }
+  .produto--hamburguer .produto-foto { height: auto; min-height: 0; aspect-ratio: 3 / 2; }
+  .produto--hamburguer .produto-conteudo { display: grid; padding: 24px; }
+  .produto--hamburguer .preco { align-self: center; margin: 0; font-size: 1.8rem; }
+  .produto-foto { flex-basis: 41%; }
+  .produto-conteudo { padding: 24px 20px; }
+  h2 { font-size: 1.5rem; }
+  .rodape-menu { padding: 24px 0 30px; flex-wrap: wrap; }
+  .rodape-menu > span:first-child { max-width: 160px; line-height: 1.6; }
+  .assinatura { font-size: 1.3rem; white-space: nowrap; }
+  .rodape { flex-wrap: wrap; gap: 16px; }
+  .rodape p { flex-basis: 70%; }
+  .rodape-nota { width: 100%; }
+}
+@media (max-width: 390px) {
+  .cabecalho, main, .rodape { width: calc(100% - 32px); }
+  .produto--hamburguer .produto-conteudo { display: flex; padding: 22px; }
+  .produto--hamburguer .preco { align-self: flex-start; margin-top: 18px; }
+  .produto-conteudo { padding: 22px 16px; }
+  .produto-categoria { letter-spacing: 0; }
+  .assinatura > span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

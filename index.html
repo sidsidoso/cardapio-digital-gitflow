@@ -3,17 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cardápio Digital</title>
+    <title>Brasa — Cardápio Digital</title>
+    <meta name="description" content="O cardápio da Brasa: hambúrguer artesanal, batata frita e suco de laranja. Projeto acadêmico com produtos fictícios.">
+    <meta name="theme-color" content="#831f29">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <main>
-      <h1>Cardápio Digital</h1>
-      <p>Conheça nosso menu.</p>
-      <ul id="produtos" aria-label="Produtos do cardápio"></ul>
-      <noscript>Ative o JavaScript para consultar os produtos.</noscript>
-      <footer>Projeto acadêmico com produtos fictícios.</footer>
+    <a class="pular-conteudo" href="#cardapio">Pular para o cardápio</a>
+    <header class="cabecalho">
+      <div class="marca" aria-label="Brasa, cozinha artesanal">
+        <span class="marca-nome">BRASA.</span>
+        <span class="marca-descricao">COZINHA ARTESANAL</span>
+      </div>
+      <div class="cabecalho-nota"><span class="ponto" aria-hidden="true"></span> O simples, bem feito.</div>
+      <a class="link-menu" href="#cardapio">Nosso cardápio <span aria-hidden="true">↗</span></a>
+    </header>
+    <main id="cardapio">
+      <div class="abertura">
+        <div><p class="sobretitulo">À SUA MESA</p><h1>O <em>cardápio.</em></h1></div>
+        <p class="introducao">Um clássico, uma boa companhia<br>e um gole de frescor.</p>
+      </div>
+      <div class="linha-menu"><span>ESCOLHA O SEU FAVORITO</span><span>03 ITENS <span aria-hidden="true">/</span> PREÇOS EM R$</span></div>
+      <ul id="produtos" class="produtos" aria-label="Produtos do cardápio"></ul>
+      <noscript><p class="aviso">Ative o JavaScript para consultar os produtos e preços.</p></noscript>
+      <div class="rodape-menu"><span>Hambúrguer. Batata. Suco. <em>Pronto.</em></span><span class="assinatura">Bom apetite! <span aria-hidden="true">↗</span></span></div>
     </main>
+    <footer class="rodape">
+      <span class="rodape-marca">BRASA.</span>
+      <p>Cardápio Digital · Projeto acadêmico.<br>Produtos e preços fictícios. Imagens ilustrativas geradas por IA.</p>
+      <span class="rodape-nota">Sem pedidos ou pagamentos.</span>
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>

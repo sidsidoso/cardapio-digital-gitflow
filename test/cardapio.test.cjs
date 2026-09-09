@@ -2,6 +2,10 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const { produtos, renderizarCardapio, formatarPreco } = require('../app.js');
 
+test('regressão do hotfix: o nome do hambúrguer tem a grafia correta', () => {
+  assert.equal(produtos.find((p) => p.id === 'hamburguer').nome, 'Hambúrguer Artesanal');
+});
+
 test('o cardápio tem pelo menos três produtos identificados, sem duplicatas', () => {
   assert.ok(produtos.length >= 3);
   assert.equal(new Set(produtos.map((produto) => produto.id)).size, produtos.length);

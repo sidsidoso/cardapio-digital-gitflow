@@ -31,8 +31,21 @@ test('a página mostra todos os produtos e não duplica itens ao renderizar nova
   renderizarCardapio(documento);
   renderizarCardapio(documento);
   assert.equal(lista.children.length, produtos.length);
-  assert.deepEqual(lista.children.map((item) => item.children[0].textContent), produtos.map((p) => p.nome));
-  assert.deepEqual(lista.children.map((item) => item.children[2].textContent.replace(/\s/g, ' ')), ['R$ 25,90', 'R$ 12,90', 'R$ 8,00']);
+  function descendentes(elemento) {
+    return [elemento, ...elemento.children.flatMap(descendentes)];
+  }
+  const titulos = descendentes(lista).filter((elemento) => elemento.tag === 'h2');
+  const precos = descendentes(lista).filter((elemento) => elemento.className === 'preco');
+  assert.deepEqual(titulos.map((item) => item.textContent), produtos.map((p) => p.nome));
+  assert.deepEqual(precos.map((item) => item.textContent.replace(/\s/g, ' ')), ['R$ 25,90', 'R$ 12,90', 'R$ 8,00']);
+  const imagens = descendentes(lista).filter((elemento) => elemento.tag === 'img');
+  assert.equal(imagens.length, produtos.length);
+  for (const imagem of imagens) {
+    assert.ok(imagem.alt.trim(), 'cada imagem deve ter descrição acessível');
+    const caminho = require('node:path').resolve(__dirname, '..', imagem.src);
+    const bytes = require('node:fs').readFileSync(caminho);
+    assert.equal(bytes.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', 'imagem PNG local válida');
+  }
 });
 
 test('todos os preços são positivos, em centavos inteiros', () => {

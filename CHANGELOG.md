@@ -1,5 +1,11 @@
 # Histórico de versões
 
+## 1.0.1
+
+- Hotfix: correção de `Hambúrgue Artesanal` para `Hambúrguer Artesanal`.
+- Teste de regressão do nome, comprovado falhando antes e passando após a correção.
+- Preços preservados em relação à versão 1.0.0.
+
 ## 1.0.0
 
 - Lista de três produtos com nome e descrição.

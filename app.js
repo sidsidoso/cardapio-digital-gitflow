@@ -1,7 +1,7 @@
 'use strict';
 
 const produtos = [
-  { id: 'hamburguer', nome: 'Hambúrgue Artesanal', descricao: 'Pão, hambúrguer e queijo.', precoCentavos: 2590 },
+  { id: 'hamburguer', nome: 'Hambúrguer Artesanal', descricao: 'Pão, hambúrguer e queijo.', precoCentavos: 2590 },
   { id: 'batata', nome: 'Batata Frita', descricao: 'Porção de batatas douradas e crocantes.', precoCentavos: 1290 },
   { id: 'suco', nome: 'Suco de Laranja', descricao: 'Suco de laranja servido gelado.', precoCentavos: 800 },
 ];
